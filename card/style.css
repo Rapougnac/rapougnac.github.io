@@ -1,0 +1,280 @@
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+
+}
+html,
+body {
+  height: 100%;
+  --bgColor: rgba(255, 255, 255, 0.3);
+  --textColor: rgb(25, 25, 25);
+  --pogText1: linear-gradient(210deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+
+  --pogText2: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+
+  html,
+  body {
+    height: 100%;
+    --bgColor: rgba(0, 0, 0, 0.37);
+    --textColor: rgb(250, 250, 250);
+    --pogText1: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+    --pogText2: linear-gradient(135deg, #81FBB8 10%, #28C76F 100%);
+  }
+}
+
+body {
+  margin: 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  color: var(--textColor);
+  overflow: hidden;
+}
+
+.canvas {
+  width: 100vw;
+  height: 100vh;
+}
+
+.tilt {
+  --blurpix: 5vmin;
+  position: relative;
+  min-width: 48rem;
+  transition: all 0.6s ease-out;
+  border-radius: 2vmin;
+  /* transform-style: preserve-3d; */
+  -webkit-backdrop-filter: blur(var(--blurpix));
+  -o-backdrop-filter: blur(var(--blurpix));
+  -moz-backdrop-filter: blur(var(--blurpix));
+  backdrop-filter: blur(var(--blurpix));
+}
+
+
+body:left p {
+  color: var(--textColor)
+}
+
+.main {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  --blurpix: 10px;
+  width: 48rem;
+  min-width: 50vw;
+  /* transform-style: preserve-3d; */
+  /* transform: perspective(1000px); */
+  border-radius: 2vmin;
+  background: var(--bgColor);
+  opacity: 0;
+  border-color: rgba(255, 255, 255, 0.1);
+  border-width: 1px;
+  /* border-style: solid; */
+  /* box-shadow: 10px 10px 33px 0px rgba(0,0,0,0.59); */
+  /* -webkit-box-shadow: 10px 10px 33px 0px rgba(0,0,0,0.59); */
+  transition: all 0.6s ease-out;
+  transform: rotateX(0deg) rotateY(0deg);
+  display: flex;
+  flex-direction: row;
+}
+
+.mainDiv {
+  width: 20rem;
+  display: flex;
+  height: 100%;
+  align-content: center;
+  background: var(--bgColor);
+  border-bottom-left-radius: 2vmin;
+  border-top-left-radius: 2vmin;
+  flex-direction: column;
+  padding-bottom: 8vmin;
+}
+
+.pfp {
+  border-radius: 10px;
+  width: 12rem;
+  height: 12rem;
+  margin: 2rem;
+  margin-bottom: 1.5rem;
+  align-self: center;
+  transform: translateZ(200px);
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  transition: all 0.3s ease-out;
+}
+
+.nickname {
+  font-family: "Bahnschrift";
+  font-weight: bold;
+  text-align: center;
+  font-size: 2rem;
+  margin: 0;
+  background: var(--pogText1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.role {
+  font-family: "Bahnschrift";
+  text-align: center;
+  font-size: 1rem;
+  margin: 0;
+}
+
+a {
+  text-align: center;
+  transition: .5s;
+  background-size: 200% auto;
+  color: var(--textColor);
+  display: block;
+  font-family: 'Bahnschrift';
+  font-size: 2vmin;
+  margin: 3vmin;
+  width: 16rem;
+  margin-top: 1.5vmin;
+  margin-bottom: 0vmin;
+  border-radius: 1vmin;
+  padding: .75vmin;
+  border: none;
+  align-self: center;
+  text-decoration: wavy;
+  background-color: hsla(0, 0%, 100%, .25);
+  backdrop-filter: blur(20px);
+}
+
+a:hover {
+  background-position: right center;
+  color: #fff;
+  background-color: hsla(0, 0%, 100%, .459);
+  text-decoration: none;
+}
+
+a[href^="https://discord."]::before {
+  content: url('./discord.svg');
+  position: relative;
+  top: .25vmin;
+}
+/* a[href^="https://github.com"] {
+  margin-left: 10px;
+} */
+
+a[href^="https://github.com"]::before {
+  content: url('./github-icon.svg');
+  position: relative;
+  top: .25vmin;
+  right: 5vmin;
+  transition: .5s;
+}
+
+.div2 {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  padding: 4rem;
+  font-family: "Bahnschrift";
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1rem;
+  align-content: center;
+}
+
+.div2 strike {
+  position: inherit;
+}
+
+@media only screen and (max-width: 800px) {
+  .card {
+    max-width: 600px !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    height: 75vh !important;
+  }
+
+  .tilt {
+    max-width: 600px !important;
+    height: 75vh !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+  }
+
+  .mainDiv {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+
+  a {
+    padding: 1vmax;
+    font-size: 1.5vmax;
+  }
+
+  .div2 {
+    font-size: 2vmax;
+    padding: 2rem;
+    padding-bottom: 4rem;
+  }
+}
+
+@media only screen and (max-width: 532px) {
+  .card {
+    max-width: 70vw !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    flex-direction: column;
+  }
+
+  .mainDiv {
+    width: 100%;
+    display: flex;
+    height: 50%;
+    align-content: center;
+    background: rgba(255, 255, 255, 0.4);
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5vmin;
+    padding-bottom: 8vmin;
+  }
+
+  .pfp {
+    border-radius: 10px;
+    width: 6rem;
+    height: 6rem;
+    margin: 0.5rem;
+    margin-bottom: 1.5rem;
+    align-self: flex-start;
+  }
+
+  .tilt {
+    max-width: 70vw !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+  }
+
+  .role {
+    font-family: "Bahnschrift";
+    text-align: center;
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .div2 {
+    font-size: 2vmax;
+    padding: 1rem;
+  }
+}
